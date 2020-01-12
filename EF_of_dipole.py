@@ -2,8 +2,11 @@ from mpmath import mp
 
 
 # * Initializing accuracy level and value of const_k
-mp.dps = 100
+mp.dps = 50
 const_k = mp.fmul(8.9875518, 10**9)
+
+def dipole_moment(charge:float, a:float):
+        return mp.fmul(charge, mp.fmul(2, a))
 
 
 def dipole(r:float, theta:float, charge:float, a:float):
@@ -64,6 +67,10 @@ def dipole_approx(r:float, theta:float, charge:float, a:float):
     return result
 
 
+def diff(EP:float, AP:float):
+        return mp.fsub(EP, AP)
+
+
 if __name__ == "__main__":
     print(mp) # Configurations of mpmath
 
@@ -76,9 +83,9 @@ if __name__ == "__main__":
     exact  = dipole(r, theta, charge, a) # Exact Electric Potential due to Dipole
     approx = dipole_approx(r, theta, charge, a) # Approx Electric Potential to Dipole
 
-    diff = mp.fsub(approx, exact) # Error
+    error = diff(exact, approx) # Error
 
     # Printing Results
     print('Exact Result  : ', exact)
     print('Approx Result : ', approx)
-    print('Difference    : ', diff)
+    print('Difference    : ', error)
