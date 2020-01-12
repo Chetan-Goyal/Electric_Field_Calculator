@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>831</width>
+    <height>454</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="calculate_pushButton">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>200</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Calculate</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="DM_lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>250</y>
+      <width>631</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>250</y>
+      <width>130</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Keraleeyam</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Dipole Moment :</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>290</y>
+      <width>130</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Keraleeyam</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Exact Potential :</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="EP_lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>290</y>
+      <width>631</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="AP_lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>330</y>
+      <width>631</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>330</y>
+      <width>130</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Keraleeyam</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Approx Potential :</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="Error_lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>370</y>
+      <width>631</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>370</y>
+      <width>130</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Keraleeyam</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Error :</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>771</width>
+      <height>159</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
+     <property name="horizontalSpacing">
+      <number>20</number>
+     </property>
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="font">
+        <font>
+         <family>Ubuntu Condensed</family>
+         <pointsize>13</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Distance between POI and center of dipole, a: </string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="a_lineEdit">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QComboBox" name="a_comboBox">
+       <item>
+        <property name="text">
+         <string>meters</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>centimeters</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>milimeters</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>angstroms</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="font">
+        <font>
+         <family>Ubuntu Condensed</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Angle between POI and positive charge from center of dipole, theta: </string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="theta_lineEdit"/>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <family>Ubuntu Condensed</family>
+         <pointsize>13</pointsize>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="text">
+        <string>Distance between POI and center of dipole, r: </string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="r_lineEdit"/>
+     </item>
+     <item row="0" column="2">
+      <widget class="QComboBox" name="r_comboBox">
+       <item>
+        <property name="text">
+         <string>meters</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>centimeters</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>milimeters</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>angstroms</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="q_lineEdit">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="font">
+        <font>
+         <family>Ubuntu Condensed</family>
+         <pointsize>13</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Either charge of dipole, q:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QComboBox" name="theta_comboBox">
+       <item>
+        <property name="text">
+         <string>degrees</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>radians</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="3" column="2">
+      <widget class="QComboBox" name="q_comboBox">
+       <item>
+        <property name="text">
+         <string>Couloumb</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>microCouloumb</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>electronzvolt</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>miliCouloumb</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>nanoCouloumb</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>picoColoumb</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>831</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
