@@ -4,7 +4,9 @@ import sys
 import mpmath as mp
 from EFP_Calculator_GUI import *
 from EF_of_dipole import *
+from copy import deepcopy
 
+mp.dps = 100
 class myForm(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -32,13 +34,13 @@ class myForm(QMainWindow):
 
     def results_disp(self):
         
-        DM = dipole_moment(self.value_q, self.value_a)
+        DM = dipole_moment(self.charge, self.a)
         self.ui.DM_lineEdit.setText(str(DM))
 
-        Exact_Potential = dipole(self.value_r, self.value_theta, self.value_q, self.value_a)
+        Exact_Potential = dipole(self.r, self.angle, self.charge, self.a)
         self.ui.EP_lineEdit.setText(str(Exact_Potential))
 
-        Approx_Potential = dipole_approx(self.value_r, self.value_theta, self.value_q, self.value_a)
+        Approx_Potential = dipole_approx(self.r, self.angle, self.charge, self.a)
         self.ui.AP_lineEdit.setText(str(Approx_Potential))
 
         Error = diff(Exact_Potential, Approx_Potential)
@@ -47,32 +49,34 @@ class myForm(QMainWindow):
     def cal_result(self):
         invalid_values = list()
         
-        # Storing Units of all the input parameters
-        self.unit_r = self.ui.r_comboBox.currentText()
-        self.unit_q = self.ui.q_comboBox.currentText()
-        self.unit_angle = self.ui.theta_comboBox.currentText()
-        self.unit_a = self.ui.a_comboBox.currentText()
 
         try:
-            self.value_r = mp.mpf( self.ui.r_lineEdit.text() )
+            self.r = ( float( self.ui.r_lineEdit.text()), self.ui.r_comboBox.currentText() )
         except ValueError:
             invalid_values.append('r')
         
         try:
-            self.value_a = mp.mpf( self.ui.a_lineEdit.text() )
+            self.a = ( float( self.ui.a_lineEdit.text() ), self.ui.a_comboBox.currentText() )
         except ValueError:
             invalid_values.append('a')
         
         try:
-            self.value_theta = mp.mpf( self.ui.theta_lineEdit.text() )
+            self.angle = ( float( self.ui.theta_lineEdit.text() ), self.ui.theta_comboBox.currentText() )
         except ValueError:
             invalid_values.append('Angle')
         
         try:
-            self.value_q = mp.mpf( self.ui.q_lineEdit.text() )
+            self.charge = ( float( self.ui.q_lineEdit.text() ), self.ui.q_comboBox.currentText() )
         except ValueError:
             invalid_values.append('Charge')
         
+        # * # Storing Units of all the input parameters
+        # * self.unit_r = self.ui.r_comboBox.currentText()
+        # * self.unit_q = semp.mpflf.ui.q_comboBox.currentText()
+        # * self.unit_angle = self.ui.theta_comboBox.currentText()
+        # * self.unit_a = self.ui.a_comboBox.currentText()
+
+
         print(invalid_values)
 
         if len(invalid_values):

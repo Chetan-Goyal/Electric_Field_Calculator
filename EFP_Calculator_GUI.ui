@@ -208,7 +208,7 @@
        </item>
        <item>
         <property name="text">
-         <string>milimeters</string>
+         <string>millimeters</string>
         </property>
        </item>
        <item>
@@ -273,7 +273,7 @@
        </item>
        <item>
         <property name="text">
-         <string>milimeters</string>
+         <string>millimeters</string>
         </property>
        </item>
        <item>
@@ -324,32 +324,32 @@
       <widget class="QComboBox" name="q_comboBox">
        <item>
         <property name="text">
-         <string>Couloumb</string>
+         <string>Coulomb</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>microCouloumb</string>
+         <string>microCoulomb</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>electronzvolt</string>
+         <string>electronCharge</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>miliCouloumb</string>
+         <string>milliCoulomb</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>nanoCouloumb</string>
+         <string>nanoCoulomb</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>picoColoumb</string>
+         <string>picoColomb</string>
         </property>
        </item>
       </widget>
