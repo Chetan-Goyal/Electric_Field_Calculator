@@ -1,10 +1,9 @@
-from mpmath import fp, mp
-
+from mpmath import mp
 
 
 # * Initializing accuracy level and value of const_k
 mp.dps = 100
-const_k = fp.fmul(8.9875518, 10**9)
+const_k = mp.fmul(8.9875518, 10**9)
 
 
 def dipole(r:float, theta:float, charge:float, a:float):
@@ -31,11 +30,11 @@ def dipole(r:float, theta:float, charge:float, a:float):
     '''
 
     # Calculating values of r_1 and r_2
-    r_1 = fp.sqrt(fp.fsub(fp.fadd(fp.power(r, 2), fp.power(a, 2)), fp.fmul(2, fp.fmul(a, fp.fmul(r, fp.cos(fp.radians(theta)))))))
-    r_2 = fp.sqrt(fp.fadd(fp.fadd(fp.power(r, 2), fp.power(a, 2)), fp.fmul(2, fp.fmul(a, fp.fmul(r, fp.cos(fp.radians(theta)))))))
+    r_1 = mp.sqrt(mp.fsub(mp.fadd(mp.power(r, 2), mp.power(a, 2)), mp.fmul(2, mp.fmul(a, mp.fmul(r, mp.cos(mp.radians(theta)))))))
+    r_2 = mp.sqrt(mp.fadd(mp.fadd(mp.power(r, 2), mp.power(a, 2)), mp.fmul(2, mp.fmul(a, mp.fmul(r, mp.cos(mp.radians(theta)))))))
     
     # Calculating final result
-    result = fp.fmul(fp.fmul(charge, const_k), fp.fsub(fp.fdiv(1, r_1), fp.fdiv(1, r_2)))
+    result = mp.fmul(mp.fmul(charge, const_k), mp.fsub(mp.fdiv(1, r_1), mp.fdiv(1, r_2)))
     
     # returning final result
     return result 
@@ -59,25 +58,25 @@ def dipole_approx(r:float, theta:float, charge:float, a:float):
     '''
     
     # Applying Formula to given parameters
-    result = fp.fdiv(fp.fmul(const_k, fp.fmul(charge, fp.fmul(2, fp.fmul(a, fp.cos(fp.radians(theta)))))), fp.power(r,2))
+    result = mp.fdiv(mp.fmul(const_k, mp.fmul(charge, mp.fmul(2, mp.fmul(a, mp.cos(mp.radians(theta)))))), mp.power(r,2))
     
     # returning final result
     return result
 
 
 if __name__ == "__main__":
-    print(fp) # Configurations of fpmath
+    print(mp) # Configurations of mpmath
 
     # Testing Values
-    r = 1.0      # in meters
+    r = 0.1      # in meters
     theta = 60   # in degrees
-    charge = 1.0   # in coulombs
+    charge = 1   # in coulombs
     a = 10**(-9) # in meters
 
     exact  = dipole(r, theta, charge, a) # Exact Electric Potential due to Dipole
     approx = dipole_approx(r, theta, charge, a) # Approx Electric Potential to Dipole
 
-    diff = fp.fsub(approx, exact) # Error
+    diff = mp.fsub(approx, exact) # Error
 
     # Printing Results
     print('Exact Result  : ', exact)
