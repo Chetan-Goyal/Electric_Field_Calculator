@@ -46,9 +46,9 @@ def dipole(r, theta, charge, a):
 
                    where,
                         r_1     = distance between negative charge and point of observation
-                                = (r^2 + a^2 - 2*a*Cos(theta))^0.5
+                                = (r^2 + a^2 - 2*a*Cos(theta))**0.5
                         r_2     = distance between positive charge and point of observation
-                                = (r^2 + a^2 + 2*a*Cos(theta))^0.5
+                                = (r^2 + a^2 + 2*a*Cos(theta))**0.5
                         const_k = 4*pi*epsilon_not
                                 = 8.9875518 x 10^9
 
@@ -134,7 +134,7 @@ def dipole_approx(r, theta, charge, a):
     Purpose      : To calculate Electric Potential due to Dipole neglecting very small value of a^2
 
     Formula Used :
-            q*2*a*cos(theta)/( const_k*(r^2) )
+            q*2*a*cos(theta)/( const_k*(r**2) )
                    where,
                     const_k = 4*pi*epsilon_not
                             = 8.9875518 x 10^9
