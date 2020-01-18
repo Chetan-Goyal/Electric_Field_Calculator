@@ -6,9 +6,12 @@ mp.dps = 100
 const_k = mp.fmul(8.9875518, 10**9)
 
 def dipole_moment(charge, a):
+    '''
+    Purpose: to calculate the value of dipole moment
 
+    Return: returns dipole moment calculated
+    '''
     # Editing Value of charge as per the unit
-    print(type(charge), type(a))
 
     if charge[1] in ('Coulomb', 'C'):
         charge = charge[0]
@@ -57,16 +60,10 @@ def dipole(r, theta, charge, a):
                    b) theta  - Angle between positive charge and point of observation
                    c) charge - either charge irrespective of sign
                    d) a      - distance between either charge and center of dipole
+
+    Return: returns exact value of electric field calculated
     '''
 
-
-
-    '''
-    Editing Values of the arguments as per the values received by this function
-    '''
-
-    print('Values Received by dipole function')
-    print(r, a, theta, charge)
 
     # Editing value of r as per the unit
     if r[1].lower() in ('meters', 'm'):
@@ -108,22 +105,12 @@ def dipole(r, theta, charge, a):
     elif charge[1] in ('picoCharge', 'pC'):
         charge = mp.fmul( charge[0], mp.power(10, -12) )
 
-
-    theta = round( mp.cos(mp.radians(theta[0])), 5 )
-    print('Charge=', charge)
-    print('a=', a)
-    print('r=', r)
-    print('theta=', theta)
-    print('cos theta=', cos_theta)
-
-
+    # Calculating value of r_1 and r_2
     r_1 = mp.sqrt(mp.fsub(mp.fadd(mp.power(r, 2), mp.power(a, 2)), mp.fmul(2, mp.fmul(a, mp.fmul(r, cos_theta)))))
     r_2 = mp.sqrt(mp.fadd(mp.fadd(mp.power(r, 2), mp.power(a, 2)), mp.fmul(2, mp.fmul(a, mp.fmul(r, cos_theta)))))
-    
+
     # Calculating final result
     result = mp.fmul(mp.fmul(charge, const_k), mp.fsub(mp.fdiv(1, r_1), mp.fdiv(1, r_2)))
-
-    print('exact: ',result)
 
     # returning final result
     return result
@@ -144,6 +131,8 @@ def dipole_approx(r, theta, charge, a):
                    b) theta  - Angle between positive charge and point of observation
                    c) charge - either charge irrespective of sign
                    d) a      - distance between either charge and center of dipole
+
+    Return : returns approx electric field calculated
     '''
 
 
@@ -199,24 +188,9 @@ def dipole_approx(r, theta, charge, a):
 
 
 def diff(EP:float, AP:float):
+    '''
+    Purpose: to calculate the difference between the exact and approx value
+
+    Return: returns the error
+    '''
     return mp.fsub(EP, AP)
-
-
-if __name__ == "__main__":
-    print(mp) # Configurations of mpmath
-
-    # Testing Values
-    r = (float(1)  , 'meters')    # in meters
-    theta = (float(60), 'degrees' )  # in degrees
-    charge = (float(1), 'Coulomb')   # in coulombs
-    a = (float(1), 'meters') # in meters
-
-    exact  = dipole(r, theta, charge, a) # Exact Electric Potential due to Dipole
-    approx = dipole_approx(r, theta, charge, a) # Approx Electric Potential to Dipole
-
-    error = diff(exact, approx) # Error
-
-    # Printing Results
-    print('Exact Result  : ', exact)
-    print('Approx Result : ', approx)
-    print('Difference    : ', error)
