@@ -108,7 +108,7 @@ class myForm(QMainWindow):
             if not self.charge[0]:
                 invalid_values.append('Charge')
             elif self.charge[0] < 0:
-                self.charge[0] = 0 - self.charge[0]
+                self.charge = (0 - self.charge[0], self.charge[1])
         except ValueError:
             invalid_values.append('Charge')
 
