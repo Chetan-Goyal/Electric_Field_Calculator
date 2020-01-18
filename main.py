@@ -15,6 +15,11 @@ class myForm(QMainWindow):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.ui.textBrowser.setOpenExternalLinks(True)
+        self.ui.textBrowser_2.setOpenExternalLinks(True)
+        self.ui.mdiArea.addSubWindow(self.ui.subwindow)
+        self.ui.mdiArea.addSubWindow(self.ui.help_subwindow)
+        self.ui.mdiArea.addSubWindow(self.ui.about_subwindow)
         self.ui.calculate_pushButton.clicked.connect(self.cal_result)
         self.show()
 
