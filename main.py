@@ -104,6 +104,8 @@ class myForm(QMainWindow):
         # checking if correct value is given to angle
         try:
             self.angle = ( float( self.ui.theta_lineEdit.text() ), self.ui.theta_comboBox.currentText() )
+            if self.angle[0] < 0:
+                self.angle = (-self.angle[0], self.angle[1])
         except ValueError:
             invalid_values.append('Angle')
 
